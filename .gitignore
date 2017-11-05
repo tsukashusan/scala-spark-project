@@ -9,3 +9,4 @@ target
 *~
 *.swp
 .g8
+/bin/

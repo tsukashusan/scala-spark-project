@@ -1,14 +1,23 @@
 import Dependencies._
 
+//javaHome := Some(file("/c/Program Files/Java/jdk1.8.0_152"))
+
 lazy val root = (project in file(".")).
   settings(
     inThisBuild(List(
       organization := "com.example",
-      scalaVersion := "2.12.4",
-      version      := "0.1.0-SNAPSHOT"
+      scalaVersion := "2.11.11",
+      version      := "0.2.0-SNAPSHOT"
     )),
     name := "Hello",
-    libraryDependencies ++= Seq(scalaTest % Test)
+    resolvers ++= Seq("hortonworks release" at "http://repo.hortonworks.com/content/repositories/",
+                      "hortonworks public" at "http://repo.hortonworks.com/content/groups/public/"),
+    libraryDependencies ++= Seq(scalaTest % Test,
+                                spakCore,
+                                spakSQL,
+                                spakStreaming,
+                                spakMlib),
+    mainClass in assembly := Some("example.Hello")
   )
 assemblyMergeStrategy in assembly := {
     case PathList("javax", "servlet", xs @ _*)         => MergeStrategy.first
