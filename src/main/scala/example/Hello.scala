@@ -7,7 +7,7 @@ object Hello extends Greeting with App {
 //  println(greeting)
 
   def execSparkContext(){
-    val spark = SparkSession.builder.appName("PythonWordCount").getOrCreate()
+    val spark = SparkSession.builder.appName("SparkWordCount").getOrCreate()
     val sc = spark.sparkContext
     //sc.hadoopConfiguration.set("fs.azure.account.key.<StorageAccountName>.blob.core.windows.net", "<StorageAccountKey>")
 
@@ -20,7 +20,7 @@ object Hello extends Greeting with App {
   }
 
   def execSpark(){
-    val spark = SparkSession.builder.appName("PythonWordCount").getOrCreate()
+    val spark = SparkSession.builder.appName("SparkWordCount").getOrCreate()
     val sc = spark.sparkContext
     sc.hadoopConfiguration.set("fs.azure.account.key.<StorageAccountName>.blob.core.windows.net", "<StorageAccountKey>")
 
